@@ -194,8 +194,8 @@ function newCard(card,faction,power,ability,type){
 	newC.setAttribute("power", power);
 	newC.setAttribute("ability", ability);
 	newC.setAttribute("type", type);
-	newC.setAttribute("onmouseover","lgCard("+this+");");
-	newC.setAttribute("onmouseout","smCard("+this+");");
+	newC.setAttribute("onmouseover","lgCard('"+card+"');");
+	newC.setAttribute("onmouseout","smCard('"+card+"');");
 	newC.setAttribute("onclick","playCard('"+card+"','"+faction+"','"+power+"','"+ability+"','"+type+"');");
 	getElm("handN").appendChild(newC);
 
@@ -221,8 +221,6 @@ function leaderCard(card,faction,power,ability,type){
 	newC.setAttribute("power", power);
 	newC.setAttribute("ability", ability);
 	newC.setAttribute("type", type);
-	newC.setAttribute("onmouseover","lgCard('"+card+"');");
-	newC.setAttribute("onmouseout","smCard('"+card+"');");
 	newC.setAttribute("onclick","playLeader('"+card+"','"+faction+"','"+power+"','"+ability+"','"+type+"');");
 	getElm("kingDiv").innerHTML = "";
 	getElm("kingDiv").appendChild(newC);
@@ -260,5 +258,11 @@ function clearInfo() {
 }	
 
 function lgCard(a) {
-	console.log(getElm(a).outerHTML);
+	newH = (cH * 1.2) + 'px';
+	getElm(a).style.height = newH;
 }	
+
+function smCard(a) {
+	newH = cH + 'px';
+	getElm(a).style.height = newH;
+}

@@ -160,8 +160,6 @@ function nullifyCards(n,o){
 				if( img[t].style.opacity == "0.3" ){			
 					img[t].style.opacity = "1";
 				}
-				img[t].setAttribute("onmouseover","lgCard('"+card+"');");
-				img[t].setAttribute("onmouseout","smCard('"+card+"');");
 				if( row.match("pl_hand") ){
 					img[t].setAttribute("onclick","playCard('"+card+"','"+faction+"','"+power+"','"+ability+"','"+type+"');");
 					img[t].style.cursor = "hand";
@@ -223,8 +221,6 @@ function dropChorn(el,card,faction,power,ability,type) {
 	newC.setAttribute("power", power);
 	newC.setAttribute("ability", ability);
 	newC.setAttribute("type", type);
-	newC.setAttribute("onmouseover","lgCard('"+card+"');");
-	newC.setAttribute("onmouseout","smCard('"+card+"');");
 	
 	destDiv.appendChild(newC);
 	
@@ -353,13 +349,25 @@ function playLeader(card,faction,power,ability,type){
 /////////////////////////////////////////////////
 
 function playCard(card,faction,power,ability,type){
+
+	console.log(card);
+	
+	showInfo(card);	
 	
 	if( !card.match("s01") && card != "s02" && ability != "l01" && ability != "l02" ){
 		cih = getElm(card);
 		if( cih ){
 			cih.parentNode.removeChild(cih);
 		}
-	}
+	}	
+	
+	setTimeout(function(){playCard2(card,faction,power,ability,type);}, 600);
+	
+}
+
+function playCard2(card,faction,power,ability,type){
+	
+	clearInfo();
 	
 	if(ability.match("a06")){
 		side = "op";
@@ -417,29 +425,30 @@ function playCard(card,faction,power,ability,type){
 		newC.setAttribute("power", power);
 		newC.setAttribute("ability", ability);
 		newC.setAttribute("type", type);
-		newC.setAttribute("onmouseover","lgCard('"+card+"');");
-		newC.setAttribute("onmouseout","smCard('"+card+"');");
 		
 		destDiv.appendChild(newC);
 		
+		if(ability.match("a06")){
+			dealCards(2);
+		}	
+		
+		if(ability.match("a02")){
+			selectDiscard(1);
+		}	
+		
+		if(card == "s07"){
+			getElm("weatherDiv").innerHTML = "";
+		}		
+		
+        $("#"+card).fadeTo("fast",0.3); 
+        $("#"+card).fadeTo("fast",1); 
+		
+		calcPlay();				
+		
 	}
 	
-	if(ability.match("a06")){
-		dealCards(2);
-	}	
-	
-	if(ability.match("a02")){
-		selectDiscard(1);
-	}	
-	
-	if(card == "s07"){
-		getElm("weatherDiv").innerHTML = "";
-	}	
-	
-	calcPlay();	
-	
 }
-
+	
 /////////////////////////////////////////////////
 
 function calcPlay() {
