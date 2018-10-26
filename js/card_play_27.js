@@ -35,13 +35,18 @@ function dropDecoy(a,b){
 	cardB = getElm(b).outerHTML;
 	
 	getElm(b).outerHTML = cardA;
-	getElm(a).outerHTML = cardB;
+	getElm(a).outerHTML = cardB;	
 	
 	nullifyCards(0,1);
 	
 	getElm("dickfo").outerHTML = getElm("dickfo").outerHTML.replace("dickfo","info");
 	
 	nullifyCards(1,1);	
+	
+	getElm(b).removeAttribute("onmouseover");
+	getElm(b).removeAttribute("onmouseout");
+	getElm(b).removeAttribute("onclick");
+	getElm(b).style.cursor = "";	
 	
 	calcPlay();
 	
@@ -162,6 +167,8 @@ function nullifyCards(n,o){
 				}
 				if( row.match("pl_hand") ){
 					img[t].setAttribute("onclick","playCard('"+card+"','"+faction+"','"+power+"','"+ability+"','"+type+"');");
+					img[t].setAttribute("onmouseover","lgCard('"+card+"');");
+					img[t].setAttribute("onmouseout","smCard('"+card+"');");					
 					img[t].style.cursor = "hand";
 				}
 			}
@@ -350,7 +357,10 @@ function playLeader(card,faction,power,ability,type){
 
 function playCard(card,faction,power,ability,type){
 
-	console.log(card);
+	var sc = document.getElementsByClassName("s_card");
+	for(t=0; t<sc.length; t++){
+		sc[t].style.height = cH+'px';
+	}
 	
 	showInfo(card);	
 	
@@ -438,12 +448,9 @@ function playCard2(card,faction,power,ability,type){
 		
 		if(card == "s07"){
 			getElm("weatherDiv").innerHTML = "";
-		}		
+		}	
 		
-        $("#"+card).fadeTo("fast",0.3); 
-        $("#"+card).fadeTo("fast",1); 
-		
-		calcPlay();				
+		calcPlay();			
 		
 	}
 	
