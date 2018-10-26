@@ -44,12 +44,12 @@ function init_table(){
 		ltTd[t].setAttribute("width", "100%");	
 	}		
 	
-	getElm("kDeck").src = "https://assweepai.github.io/img/empty.png";
-	getElm("op_kDeck").src = "https://assweepai.github.io/img/empty.png";	
-	getElm("dDeck").src = "https://assweepai.github.io/img/empty.png";
-	getElm("rDeck").src = "https://assweepai.github.io/img/nrback.png";	
-	getElm("op_dDeck").src = "https://assweepai.github.io/img/empty.png";
-	getElm("op_rDeck").src = "https://assweepai.github.io/img/nrback.png";		
+	getElm("kDeck").src = "img/empty.png";
+	getElm("op_kDeck").src = "img/empty.png";	
+	getElm("dDeck").src = "img/empty.png";
+	getElm("rDeck").src = "img/nrback.png";	
+	getElm("op_dDeck").src = "img/empty.png";
+	getElm("op_rDeck").src = "img/nrback.png";		
 
 	getElm("pl_sc").style.width = cH/1.5 + 'px';
 	getElm("pl_sc").style.height = cH/1.5 + 'px';
@@ -79,7 +79,7 @@ function init_table(){
 	for(t=0; t<sc_td.length; t++){
 		var tdClass = sc_td[t].getAttribute("class");
 		if( tdClass == "pl_scTD"){
-			urlString = 'url(https://assweepai.github.io/img/pl_circle.png)';
+			urlString = 'url(img/pl_circle.png)';
 			sc_td[t].style.backgroundImage = urlString;
 			sc_td[t].style.backgroundRepeat = "no-repeat";
 			sc_td[t].style.backgroundSize = "100% auto";
@@ -90,14 +90,14 @@ function init_table(){
 			sc_td[t].style.zIndex = 10;
 		}
 		if( tdClass == "pl_ttlTD"){
-			urlString = 'url(https://assweepai.github.io/img/pl_circle.png)';
+			urlString = 'url(img/pl_circle.png)';
 			sc_td[t].style.backgroundImage = urlString;
 			sc_td[t].style.backgroundRepeat = "no-repeat";
 			sc_td[t].style.backgroundSize = "auto 100%";
 			sc_td[t].style.backgroundPosition = "center";
 		}
 		if( tdClass == "op_scTD"){
-			urlString = 'url(https://assweepai.github.io/img/op_circle.png)';
+			urlString = 'url(img/op_circle.png)';
 			sc_td[t].style.backgroundImage = urlString;
 			sc_td[t].style.backgroundRepeat = "no-repeat";
 			sc_td[t].style.backgroundSize = "100% auto";
@@ -108,7 +108,7 @@ function init_table(){
 			sc_td[t].style.zIndex = 10;
 		}
 		if( tdClass == "op_ttlTD"){
-			urlString = 'url(https://assweepai.github.io/img/op_circle.png)';
+			urlString = 'url(img/op_circle.png)';
 			sc_td[t].style.backgroundImage = urlString;
 			sc_td[t].style.backgroundRepeat = "no-repeat";
 			sc_td[t].style.backgroundSize = "auto 100%";
