@@ -216,7 +216,7 @@ function dropChorn(el,card,faction,power,ability,type) {
 	} else {
 		image = card;
 	}
-	newC.src = 'img/'+image+'s.png';	
+	newC.src = 'https://assweepai.github.io/img/'+image+'s.png';	
 	newC.style.height = cH + 'px';
 	newC.setAttribute("class", "s_card");
 	newC.setAttribute("faction", faction);
@@ -303,7 +303,7 @@ function playDiscard(card,faction,power,ability,type){
 	if( lCard ){
 		getElm("discardDiv").innerHTML = lCard.outerHTML;
 	} else {
-		getElm("discardDiv").innerHTML = '<img id="rDeck" src="img/empty.png">';
+		getElm("discardDiv").innerHTML = '<img id="rDeck" src="https://assweepai.github.io/img/empty.png">';
 	}
 	var lCardImg = getElm("discardDiv").getElementsByTagName("img")[0];
 	lCardImg.style.height = cH + 'px';
@@ -405,7 +405,7 @@ function playCard(card,faction,power,ability,type){
 		} else {
 			image = card;
 		}
-		newC.src = 'img/'+image+'s.png';		
+		newC.src = 'https://assweepai.github.io/img/'+image+'s.png';		
 		newC.style.height = cH + 'px';
 		newC.style.opacity = "1";
 		if(tD == "weatherDiv"){

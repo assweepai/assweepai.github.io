@@ -19,13 +19,13 @@ function generateDeck(){
 		} else {
 			image = card;
 		}		
-		newC.setAttribute("image", "img/"+image+".png");
+		newC.setAttribute("image", "https://assweepai.github.io/img/"+image+".png");
 		cInfo = card + "<br>";
 		cInfo = cInfo + faction + "<br>";
 		cInfo = cInfo + type + "<br>";
 		cInfo = cInfo + power + "<br>";
 		cInfo = cInfo + ability + "<br>";
-		cInfo = cInfo + "img/"+image+".png<br>";
+		cInfo = cInfo + "https://assweepai.github.io/img/"+image+".png<br>";
 		newC.innerHTML = cInfo;
 		contDiv.appendChild(newC);
 		
@@ -185,7 +185,7 @@ function newCard(card,faction,power,ability,type){
 	} else {
 		image = card;
 	}
-	newC.src = 'img/'+image+'s.png';
+	newC.src = 'https://assweepai.github.io/img/'+image+'s.png';
 	newC.style.height = cH + 'px';
 	newC.style.cursor = 'pointer';
 	newC.style.opacity = "1";
@@ -212,7 +212,7 @@ function leaderCard(card,faction,power,ability,type){
 	} else {
 		image = card;
 	}
-	newC.src = 'img/'+image+'s.png';
+	newC.src = 'https://assweepai.github.io/img/'+image+'s.png';
 	newC.style.height = cH + 'px';
 	newC.style.cursor = 'pointer';
 	newC.style.opacity = "1";
@@ -245,7 +245,7 @@ function showInfo(card) {
 	infoDiv.style.height = "100%";
 	infoDiv.style.width = "100%";
 
-	cardInfo = '<img src="img/' + image + '.png" style="max-width:' + infoDiv.offsetWidth*0.9 + 'px;max-height:' + infoDiv.offsetHeight*0.9 + 'px"></img>';
+	cardInfo = '<img src="https://assweepai.github.io/img/' + image + '.png" style="max-width:' + infoDiv.offsetWidth*0.9 + 'px;max-height:' + infoDiv.offsetHeight*0.9 + 'px"></img>';
 	
 	infoDiv.innerHTML = cardInfo;
 	
